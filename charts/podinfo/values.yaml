@@ -5,7 +5,7 @@ host: #0.0.0.0
 backend: #http://backend-podinfo:9898/echo
 backends: []
 image:
-  repository: ${{RESIGTRY_FQDN}}/podinfo
+  repository: ahromis/podinfo
   tag: master-627d5c4
   pullPolicy: IfNotPresent
 ui:
