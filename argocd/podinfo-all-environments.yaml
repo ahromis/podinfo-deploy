@@ -1,0 +1,17 @@
+# Parent Argo CD app (grouping) for the flaskr apps
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: podinfo-environments
+  namespace: argo-cd  # All app resources live in the argocd namespace
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: argocd  # App-of-apps should also use argocd for their destination namespace
+    name: in-cluster
+  project: podinfo
+  source:
+    path: ./.argocd/apps  # Directory that contains the child apps
+    repoURL: https://github.com/ahromis/podinfo-deploy.git
+    targetRevision: main
