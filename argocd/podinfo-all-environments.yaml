@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: podinfo-environments
-  namespace: argo-cd  # All app resources live in the argocd namespace
+  namespace: argocd  # All app resources live in the argocd namespace
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
