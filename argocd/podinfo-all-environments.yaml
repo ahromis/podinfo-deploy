@@ -12,6 +12,6 @@ spec:
     name: in-cluster
   project: podinfo
   source:
-    path: ./.argocd/apps  # Directory that contains the child apps
+    path: ./argocd/apps  # Directory that contains the child apps
     repoURL: https://github.com/ahromis/podinfo-deploy.git
     targetRevision: main
