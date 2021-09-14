@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: https://github.com/ahromis/podinfo-deploy.git
     targetRevision: main
-    path: test
+    path: charts/podinfo
     helm:
       parameters:
         - name: buildID
