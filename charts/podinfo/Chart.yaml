@@ -4,10 +4,10 @@ appVersion: 627d5c4
 name: podinfo
 engine: gotpl
 description: Podinfo Helm chart for Kubernetes
-home: https://github.com/stefanprodan/podinfo
+home: https://github.com/ahromis/podinfo-deploy
 maintainers:
-  - email: stefanprodan@users.noreply.github.com
-    name: stefanprodan
+  - email: ahromis@users.noreply.github.com
+    name: ahromis
 sources:
-  - https://github.com/stefanprodan/podinfo
+  - https://github.com/ahromis/podinfo-deploy
 kubeVersion: ">=1.19.0-0"
