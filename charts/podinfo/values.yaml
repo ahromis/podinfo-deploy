@@ -87,13 +87,13 @@ serviceAccount:
 # set container security context
 securityContext: {}
 ingress:
-  enabled: false
+  enabled: true
   className: ""
   annotations: {}
   # kubernetes.io/ingress.class: nginx
   # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: podinfo.local
+    - host: podinfo-test.home.hromis.com
       paths:
         - path: /
           pathType: ImplementationSpecific
