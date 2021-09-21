@@ -6,7 +6,7 @@ backend: #http://backend-podinfo:9898/echo
 backends: []
 image:
   repository: ahromis/podinfo
-  tag: SA-281-74278b0
+  tag: SA-1-aef1a8b
   pullPolicy: IfNotPresent
 ui:
   color: "#34577c"
