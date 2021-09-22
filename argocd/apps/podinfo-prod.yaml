@@ -1,0 +1,23 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: podinfo-prod
+  namespace: argocd  # All app resources live in the argocd namespace
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: podinfo-prod
+    name: in-cluster
+  project: podinfo
+  source:
+    repoURL: https://github.com/ahromis/podinfo-deploy.git
+    targetRevision: main
+    path: charts/podinfo
+    helm:
+      parameters:
+        - name: buildID
+          value: argocd
+      valueFiles:
+        - values-prod.yaml
