@@ -1,21 +1,17 @@
 # Production values for podinfo.
 # Includes Redis deployment and memory limits.
-
 replicaCount: 1
 logLevel: info
 backend: #http://backend-podinfo:9898/echo
 backends: []
-
 image:
-  repository: ghcr.io/stefanprodan/podinfo
-  tag: 6.0.0
+  repository: ahromis/podinfo
+  tag: SA-1-aef1a8b
   pullPolicy: IfNotPresent
-
 ui:
   color: "#34577c"
   message: ""
   logo: ""
-
 # failure conditions
 faults:
   delay: false
@@ -24,7 +20,6 @@ faults:
   unready: false
   testFail: false
   testTimeout: false
-
 # Kubernetes Service settings
 service:
   enabled: true
@@ -36,11 +31,9 @@ service:
   grpcPort: 9999
   grpcService: podinfo
   nodePort: 31198
-
 # enable h2c protocol (non-TLS version of HTTP/2)
 h2c:
   enabled: false
-
 # enable tls on the podinfo service
 tls:
   enabled: false
@@ -54,7 +47,6 @@ tls:
   # NOTE: requires privileged container with NET_BIND_SERVICE capability -- this is useful for testing
   # in local clusters such as kind without port forwarding
   hostPort:
-
 # create a certificate manager certificate (cert-manager required)
 certificate:
   create: false
@@ -65,7 +57,6 @@ certificate:
   # the hostname / subject alternative names for the certificate
   dnsNames:
     - podinfo
-
 # metrics-server add-on required
 hpa:
   enabled: true
@@ -76,7 +67,6 @@ hpa:
   memory:
   # average http requests per second per pod (k8s-prometheus-adapter)
   requests:
-
 # Redis address in the format <host>:<port>
 cache: ""
 # Redis deployment
@@ -84,23 +74,20 @@ redis:
   enabled: true
   repository: redis
   tag: 6.0.8
-
 serviceAccount:
   # Specifies whether a service account should be created
   enabled: false
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name:
-
 # set container security context
 securityContext: {}
-
 ingress:
   enabled: false
   className: ""
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
   hosts:
     - host: podinfo.local
       paths:
@@ -110,28 +97,21 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
-
 linkerd:
   profile:
     enabled: false
-
 # create Prometheus Operator monitor
 serviceMonitor:
   enabled: false
   interval: 15s
   additionalLabels: {}
-
 resources:
   limits:
     memory: 256Mi
   requests:
     cpu: 100m
     memory: 64Mi
-
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
-
 podAnnotations: {}
